@@ -15,9 +15,17 @@ const uploadOnCloudinary = async (filePath) => {
     }
    const response= await cloudinary.uploader.upload (filePath, {
         resource_type:"auto",
-    })}
+    })
+  console.log(response)
+  console.log("the file is uloaded on ", response.url)
+}
     // file has beem saved successfully
      catch (error){
-
+     fs.unlink(filePath)
+     //remove the file from the temporary storage 
+     //as the upload operation got failed
+     return null
     }
 }
+
+export {uploadOnCloudinary}
