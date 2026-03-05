@@ -17,8 +17,8 @@ const videoSchema = new Schema({
         type: String,
         required:true
     },
-    duratrion:{
-        type:Number, // also used cloudinary for description
+    duration:{
+        type:Number,
         required :true
     },
     views:{
