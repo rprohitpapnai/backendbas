@@ -220,7 +220,7 @@ const getCurrentUser= asyncHandler(async (req, res) => {
   .json(200,req.user,"User fetched successfully")
 })
 
-const updateAccountDetails = asuncHandler(async (req, res) => {
+const updateAccountDetails = asyncHandler(async (req, res) => {
   const {fullname, email, }=req.body;
   if(!fullname || !email){
     throw new ApiError(400, "Fullname and email are required")
@@ -357,7 +357,6 @@ const channel = await User.aggregate([
 ])
 
 
-})
 
 if (!channel?.length){
   throw new ApiError(404, "Channel not found with the provided username")
@@ -367,7 +366,7 @@ return res.status(200).json(
     channel[0],
     "Channel fetched successfully"
   )
-)
+)})
 
 const getWatchHistory = asyncHandler(async (req, res) => {
   const user = await User.aggregate([
